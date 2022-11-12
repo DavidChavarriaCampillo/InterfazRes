@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InterfazRes.Login">
+    <StackLayout BackgroundColor="Black">
+        <StackLayout.Resources>
+            <ResourceDictionary>
+                <Style x:Key="button"
+                       TargetType="Button">
+                    <Setter Property="TextColor" Value="Black"/>
+                    <Setter Property="CornerRadius" Value="20"/>
+                    <Setter Property="BackgroundColor" Value="#d93c97"/>
+                </Style>
+                <Style x:Key="frame"
+                       TargetType="Frame">
+                    <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                    <Setter Property="Margin" Value="40,100,40,100"/>
+                    <Setter Property="BorderColor" Value="#f9b5f3"/>
+                    <Setter Property="CornerRadius" Value="20"/>
+                    <Setter Property="HasShadow" Value="False"/>
+                    <Setter Property="BackgroundColor" Value="#79017e"/>
+                    <Setter Property="HeightRequest" Value="100"/>
+                </Style>
+                <Style x:Key="password"
+                       TargetType="Entry">
+                    <Setter Property="Margin" Value="0,20,0,0"/>
+                    <Setter Property="IsPassword" Value="True"/>
+                    <Setter Property="Placeholder" Value="Password"/>
+                    <Setter Property="PlaceholderColor" Value="#d93c97"/>
+                    <Setter Property="VerticalOptions" Value="Center"/>
+                    <Setter Property="TextColor" Value="#d93c97"/>
+                </Style>
+                <Style x:Key="usuario"
+                       TargetType="Entry">
+                    <Setter Property="Margin" Value="0,0,0,20"/>
+                    <Setter Property="Placeholder" Value="User"/>
+                    <Setter Property="PlaceholderColor" Value="#d93c97"/>
+                    <Setter Property="VerticalOptions" Value="Center"/>
+                    <Setter Property="TextColor" Value="#d93c97"/>                    
+                </Style>
+            </ResourceDictionary>
+        </StackLayout.Resources>
+        <Frame Style="{StaticResource frame}">
+            <StackLayout>
+                <Image Source="Login7.png" WidthRequest="700" HeightRequest="230"/>            
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Entry Style="{StaticResource usuario}" x:Name="User" Text="{Binding Usuario}"/>
+                    <Entry Style="{StaticResource password}" x:Name="Password" Text="{Binding Contracena}"/>
+                    <Grid Margin="0,50,0,0" HorizontalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="Registrar" Grid.Row="0" Grid.Column="0" x:Name="regis" Clicked="regis_Clicked" Style="{StaticResource button}"/>
+                        <Button Text="Iniciar" Grid.Row="0" Grid.Column="1" x:Name="log" Clicked="log_Clicked" Style="{StaticResource button}"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

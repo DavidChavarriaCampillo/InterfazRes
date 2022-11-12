@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InterfazRes.View.Register">
+    <StackLayout BackgroundColor="#000002">
+        <StackLayout.Resources>
+            <ResourceDictionary>
+                <Style x:Key="button"
+                       TargetType="Button">
+                    <Setter Property="TextColor" Value="Black"/>
+                    <Setter Property="CornerRadius" Value="10"/>
+                    <Setter Property="FontSize" Value="Large"/>
+                    <Setter Property="IsEnabled" Value="True"/>
+                    <Setter Property="FontAttributes" Value="Bold"/>
+                    <Setter Property="Padding" Value="8"/>
+                    <Setter Property="Margin" Value="1"/>
+                    <Setter Property="BackgroundColor" Value="#2259ea"/>
+                    <Setter Property="BorderWidth" Value="2"/>
+                    <Setter Property="Margin" Value="0,20,0,0"/>
+                </Style>
+                <Style x:Key="frame"
+                       TargetType="Frame">
+                    <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                    <Setter Property="Margin" Value="20,0,20,30"/>
+                    <Setter Property="CornerRadius" Value="20"/>
+                    <Setter Property="BorderColor" Value="#AE50A8"/>
+                    <Setter Property="HasShadow" Value="False"/>
+                    <Setter Property="BackgroundColor" Value="White"/>
+                </Style>
+                <Style x:Key="documento"
+                       TargetType="Entry">
+                    <Setter Property="Placeholder" Value="Numero de documento"/>
+                    <Setter Property="PlaceholderColor" Value="Black"/>
+                    <Setter Property="FontSize" Value="Medium"/>
+                </Style>
+                <Style x:Key="nombre"
+                       TargetType="Entry">
+                    <Setter Property="Placeholder" Value="Nombre completo"/>
+                    <Setter Property="PlaceholderColor" Value="Black"/>
+                    <Setter Property="FontSize" Value="Medium"/>
+                </Style>
+                <Style x:Key="contracena"
+                       TargetType="Entry">
+                    <Setter Property="Placeholder" Value="Contraseña"/>
+                    <Setter Property="PlaceholderColor" Value="Black"/>
+                    <Setter Property="FontSize" Value="Medium"/>
+                    <Setter Property="IsPassword" Value="True"/>
+                </Style>
+                <Style x:Key="email"
+                       TargetType="Entry">
+                    <Setter Property="Placeholder" Value="Email"/>
+                    <Setter Property="PlaceholderColor" Value="Black"/>
+                    <Setter Property="FontSize" Value="Medium"/>
+                </Style>
+                <Style x:Key="usuario"
+                       TargetType="Entry">
+                    <Setter Property="Placeholder" Value="User"/>
+                    <Setter Property="PlaceholderColor" Value="Black"/>
+                    <Setter Property="FontSize" Value="Medium"/>
+                </Style>
+                <Style x:Key="titulo"
+                       TargetType="Label">
+                    <Setter Property="TextColor" Value="Black"/>
+                    <Setter Property="FontSize" Value="40"/>
+                    <Setter Property="HorizontalOptions" Value="Center"/>
+                </Style>
+            </ResourceDictionary>
+        </StackLayout.Resources>
+        <Image Source="Login2.png" WidthRequest="350"/>
+        <Frame Style="{StaticResource frame}">
+            <Grid>
+                <StackLayout>
+                    <Label Style="{StaticResource titulo}" Text="Registre sus datos"/>
+                    <Entry Style="{StaticResource documento}" Text="{Binding Documento}" x:Name="documento"/>
+                    <Entry Style="{StaticResource nombre}" Text="{Binding Nombre}"/>
+                    <Entry Style="{StaticResource usuario}" Text="{Binding Usuario}" x:Name="user"/>
+                    <Entry Style="{StaticResource contracena}" Text="{Binding Contracena}"/>
+                    <Entry Style="{StaticResource email}" Text="{Binding Email}" x:Name="email"/>
+                    <Button Style="{StaticResource button}" x:Name="btn_Registrar"
+                            Text="REGISTRARSE"
+                            Clicked="btn_Registrar_Clicked"
+                    />
+                </StackLayout>
+            </Grid>
+        </Frame>
+    </StackLayout>
+</ContentPage>

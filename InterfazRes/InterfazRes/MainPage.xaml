@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:InterfazRes.viewModel"
+             x:Class="InterfazRes.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel x:Name="vm" />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="*, 2*, Auto">
+        <BoxView Grid.RowSpan="3">
+            <BoxView.Background>
+                <LinearGradientBrush>
+                    <GradientStopCollection>
+                        <GradientStop Color="#000a23" Offset="0"/>
+                        <GradientStop Color="#011a50" Offset="1"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+        <Grid>
+            <!--<Path Data="M0,0H375V262.033s-9.025,4.813-55.426-10.71-70.141-83.047-130.3-83.22-83.544,67.7-130.893,83.22S0,262.033,0,262.033Z" 
+                  Aspect="Fill" Fill="#ffbe00"/>-->
+            <Image Source="exclusive.png" WidthRequest="800" HeightRequest="800" HorizontalOptions="Start" VerticalOptions="Start" Margin="5"/>
+            <Image Source="Menu1.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="20"/>
+            <Image Source="buscar.png" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Start" Margin="20" />
+
+        </Grid>
+        <StackLayout Grid.Row="1" HorizontalOptions="Center" Margin="0,-12,0,0" Spacing="0">
+            <Grid HeightRequest="210" WidthRequest="210" HorizontalOptions="Center">
+                <!--<Ellipse Stroke="white" StrokeThickness="2" Aspect="Fill"/>-->
+                <Image x:Name="BannerImg" Source="sex2.png" HeightRequest="600" WidthRequest="600" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Grid>
+            <StackLayout HorizontalOptions="Center" Spacing="15">
+                <Label x:Name="Mensaje" TextColor="White" FontSize="30" HorizontalOptions="Center"/>
+                <Label Text="¿Tienes un deseo?" TextColor="White" FontSize="20" HorizontalOptions="Center" />
+                <Label Text="¡Hazlo realidad!" TextColor="White" FontSize="45" FontAttributes="Bold" HorizontalOptions="Center" />
+                <Button Text="EXPERIMENTA" TextColor="White" BackgroundColor="#FF1CA4" WidthRequest="150" HeightRequest="46" 
+                        CornerRadius="23" HorizontalOptions="Center" Command="{Binding OrderCommand}"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Grid.Row="2" Margin="25,0,0,25" Spacing="10">
+            <Label Text="Combos" TextColor="White" Opacity="0.5" FontSize="14"/>
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <StackLayout Orientation="Horizontal" BindableLayout.ItemsSource="{Binding Picks}" Spacing="30">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="15">
+                                
+                                <Image Source="{Binding Image}" WidthRequest="90" HeightRequest="80" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <StackLayout Grid.Column="1" Spacing="5" WidthRequest="115">
+                                    <Label Text="{Binding Title}" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                                    <Label Text="{Binding Description}" TextColor="White" FontSize="10" HorizontalOptions="Center" />
+                                    <Label Text="{Binding Price}" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
+
+
+

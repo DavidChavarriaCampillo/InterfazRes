@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:InterfazRes.viewModel"
+             x:Class="InterfazRes.OrderPage">
+
+    <ContentPage.BindingContext>
+        <vm:OrderViewModel x:Name="vm"/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="130, *">
+        <BoxView Grid.RowSpan="2">
+            <BoxView.Background>
+                <LinearGradientBrush>
+                    <GradientStopCollection>
+                        <GradientStop Color="#0a0d20" Offset="0"/>
+                        <GradientStop Color="#171749" Offset="1"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+        <Grid>
+            <Path Data="M0,0H375V262.033s-9.025,4.813-55.426-10.71-70.141-83.047-130.3-83.22-83.544,67.7-130.893,83.22S0,262.033,0,262.033Z" 
+                  Aspect="Fill" Fill="#ff00a2"/>
+            <StackLayout Orientation="Horizontal" Margin="25" Spacing="20" VerticalOptions="Start">
+               <!-- <ImageButton Source="back.png" BackgroundColor="Transparent" WidthRequest="20" HeightRequest="20" HorizontalOptions="Start" VerticalOptions="Center"
+                         Command="{Binding BackCommand}"/>-->
+                <Label Text="MENÚ" TextColor="Black" FontSize="20" FontAttributes="Bold" VerticalOptions="Start"/>
+            </StackLayout>
+        </Grid>
+        <CarouselView Grid.Row="1" ItemsSource="{Binding MenuList}" PeekAreaInsets="80" Margin="0, -20, 0, 20" PositionChanged="CarouselPositionChanged">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="520" WidthRequest="212" HorizontalOptions="Center">
+                        <Grid RowDefinitions="*,*,*" WidthRequest="175" HorizontalOptions="Center" Margin="0, 50">
+                            <BoxView Grid.RowSpan="3" BackgroundColor="#A5A5A5" CornerRadius="25"/>
+                            <StackLayout Grid.Row="1" Padding="30" VerticalOptions="Center">
+                                <Label Text="{Binding Title}" TextColor="Black" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Description}" TextColor="Black" FontSize="14" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2" Spacing="20" Padding="20" VerticalOptions="End">
+                                <Label Text="{Binding Price}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Button Text="Agregar" TextColor="White" BackgroundColor="#ff00a2" WidthRequest="100" HeightRequest="40"
+                                        CornerRadius="20" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid HeightRequest="210" WidthRequest="210" VerticalOptions="Start" HorizontalOptions="Center">
+                            <Ellipse Stroke="Black" StrokeThickness="2" Aspect="Fill"/>
+                            <Image x:Name="MenuImg" Source="{Binding Image}" HeightRequest="195" WidthRequest="195" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </Grid>
+    
+   
+    
+</ContentPage>
